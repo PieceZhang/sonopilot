@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a1115">
+    <meta name="description" content="Explore SonoPilot's vision-language-action model, real-time needle perception, uncertainty-aware control, and asynchronous intelligence.">
+    <meta property="og:title" content="Technology — SonoPilot">
+    <meta property="og:description" content="The intelligence behind SonoPilot's closed-loop robotic ultrasound system.">
+    <meta property="og:image" content="https://piecezhang.github.io/sonopilot/assets/images/og.png">
+    <link rel="canonical" href="https://piecezhang.github.io/sonopilot/technology/">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <title>Technology — SonoPilot</title>
+  </head>
+  <body data-page="technology" data-base="..">
+    <header class="site-header" data-site-header></header>
+    <main id="main-content">
+      <header class="page-hero">
+        <div class="container">
+          <p class="eyebrow">Technology</p>
+          <h1>The intelligence behind SonoPilot</h1>
+          <p class="lead">A closed-loop system that observes ultrasound, understands needle state and instructions, and converts that understanding into adaptive robotic action.</p>
+          <div class="kicker-line"><span>Perception</span><span>VLA model</span><span>Uncertainty</span><span>Asynchronous control</span></div>
+        </div>
+      </header>
+
+      <section class="section" aria-labelledby="loop-title">
+        <div class="container">
+          <div class="section-head">
+            <div><p class="eyebrow">System overview</p><h2 id="loop-title">Observe. Understand. Act. Observe.</h2></div>
+            <p>Like a human operator, SonoPilot repeatedly turns visual feedback into an estimated needle state, an action, and a new observation.</p>
+          </div>
+          <div class="loop-diagram reveal" aria-label="SonoPilot closed-loop architecture">
+            <article class="loop-node"><p class="eyebrow">Input</p><h3>Ultrasound image</h3></article>
+            <article class="loop-node"><p class="eyebrow">Perceive</p><h3>Needle state</h3></article>
+            <article class="loop-node"><p class="eyebrow">Understand</p><h3>Vision-language-action model</h3></article>
+            <article class="loop-node"><p class="eyebrow">Act</p><h3>Robotic action</h3></article>
+            <article class="loop-node"><p class="eyebrow">World</p><h3>Environment changes</h3></article>
+          </div>
+          <div class="loop-return">↖ continuous visual feedback loop ↙</div>
+        </div>
+      </section>
+
+      <section class="section section-dark" aria-labelledby="vla-title">
+        <div class="container">
+          <div class="section-head">
+            <div><p class="eyebrow">Vision-language-action model</p><h2 id="vla-title">From pixels and instructions to robot commands</h2></div>
+            <p>The system adapts a compact Qwen2.5-VL 3B model with a Register, visual features, robot state, and language instruction to generate actions.</p>
+          </div>
+          <div class="architecture-card reveal">
+            <img src="../assets/images/vla-architecture.png" alt="Detailed SonoPilot model architecture showing the cross-depth fusion tracking head, visual encoder, register, MLP aligner, language model, and uncertainty-aware control policy" loading="lazy" width="816" height="442">
+          </div>
+          <div class="detail-grid section-tight">
+            <article class="detail-card"><p class="eyebrow">Visual input</p><h3>See the needle</h3><p>Ultrasound frames pass through the vision encoder while the tracking head maintains a structured needle-position estimate.</p></article>
+            <article class="detail-card"><p class="eyebrow">Context</p><h3>Join state and language</h3><p>An MLP aligner brings visual features together with robot state and language instructions for large-model reasoning.</p></article>
+            <article class="detail-card"><p class="eyebrow">Output</p><h3>Generate action</h3><p>The model produces robotic action outputs for insertion angle, needle speed, probe motion, or a stop decision.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="tracking-title">
+        <div class="container media-split">
+          <div>
+            <p class="eyebrow">Real-time needle perception</p>
+            <h2 id="tracking-title">Cross-depth fusion tracking</h2>
+            <p>The tracking head combines shallow positional features with deeper semantic features inside the vision encoder. Their fusion produces a structured needle-position output while preserving real-time operation.</p>
+            <ul class="challenge-list">
+              <li><span>Shallow features</span><span>Position detail</span></li>
+              <li><span>Deep features</span><span>Semantic context</span></li>
+              <li><span>Fused output</span><span>Needle position</span></li>
+            </ul>
+          </div>
+          <div class="media-frame reveal">
+            <img src="../assets/images/tracking-demo.jpg" alt="Experimental ultrasound frame with needle tracking overlays" loading="lazy" width="1280" height="720">
+            <div class="media-label"><span>Tracking demo</span><span>Real ultrasound frame</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-dark" aria-labelledby="uncertainty-title">
+        <div class="container">
+          <div class="section-head">
+            <div><p class="eyebrow">Uncertainty-aware control</p><h2 id="uncertainty-title">Uncertain? Slow down.</h2></div>
+            <p>SonoPilot learns an expert-inspired behavior: when localization becomes uncertain or the needle is less visible, motion becomes more conservative.</p>
+          </div>
+          <div class="confidence-visual reveal">
+            <article class="confidence-card"><div class="confidence-icon">CLEAR</div><h3>High confidence</h3><p>Clear needle appearance supports normal insertion behavior.</p></article>
+            <div class="confidence-arrow" aria-hidden="true">⇄</div>
+            <article class="confidence-card alert"><div class="confidence-icon">UNCERTAIN</div><h3>Slow down or stop</h3><p>Blurred boundaries, uncertain tip position, or an unstable trajectory lead to slower motion or <strong>[STOP]</strong>.</p></article>
+          </div>
+          <p class="fine-print">This is the control behavior described in the source presentation; it is not a clinical safety guarantee.</p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="async-title">
+        <div class="container async-grid">
+          <div>
+            <p class="eyebrow">Asynchronous intelligence</p>
+            <h2 id="async-title">Fast perception. Deep reasoning.</h2>
+            <p>Tracking and VLA reasoning run separately, so the real-time tracking loop does not wait for large-model action generation. The presentation describes this as avoiding blocking latency and keeping needle feedback responsive.</p>
+            <div class="rate-stack">
+              <div class="rate-card"><strong>≈25 FPS</strong><div><p>Tracking</p><div class="rate-bar"><span style="--rate:100%"></span></div></div></div>
+              <div class="rate-card"><strong>≈10 FPS</strong><div><p>VLA action</p><div class="rate-bar"><span style="--rate:40%"></span></div></div></div>
+            </div>
+          </div>
+          <div class="architecture-card reveal">
+            <img src="../assets/images/async-pipeline.png" alt="Timing diagram showing the tracking branch operating separately from the language-model action branch" loading="lazy" width="372" height="139">
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer" data-site-footer></footer>
+    <script src="../assets/js/content.js"></script><script src="../assets/js/site.js"></script>
+  </body>
+</html>
