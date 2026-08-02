@@ -1,0 +1,22 @@
+{
+  "name": "SonoPilot",
+  "short_name": "SonoPilot",
+  "description": "Vision-Language-Action robotic ultrasound research platform",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0a1115",
+  "theme_color": "#0a1115",
+  "icons": [
+    {
+      "src": "assets/images/logo/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -34,7 +34,7 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
     <div class="nav-shell">
       <a class="wordmark" href="${pageUrl()}" aria-label="SonoPilot home">
-        <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <img class="brand-mark" src="${imageUrl("logo/logo-mark-128.png")}" alt="" width="72" height="128">
         <span>Sono<span>Pilot</span></span>
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
@@ -50,7 +50,10 @@
   document.querySelector("[data-site-footer]").innerHTML = `
     <div class="footer-main">
       <div>
-        <a class="wordmark footer-wordmark" href="${pageUrl()}">Sono<span>Pilot</span></a>
+        <a class="wordmark footer-wordmark" href="${pageUrl()}" aria-label="SonoPilot home">
+          <img class="brand-mark" src="${imageUrl("logo/logo-mark-128.png")}" alt="" width="72" height="128">
+          <span>Sono<span>Pilot</span></span>
+        </a>
         <p>A research prototype advancing vision-language-action intelligence for ultrasound-guided needle intervention.</p>
       </div>
       <nav aria-label="Footer navigation">${nav}</nav>
