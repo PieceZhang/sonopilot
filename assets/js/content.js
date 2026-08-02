@@ -112,7 +112,9 @@ window.SONOPILOT_CONTENT = {
       role: "Associate Professor",
       affiliation:
         "Department of Mechanical and Automation Engineering; Surgical Robotics and Instrumentation Laboratory (SRIL), The Chinese University of Hong Kong",
-      image: "shing-shin-cheng.jpg",
+      image: "shing-shin-cheng.png",
+      imageWidth: 196,
+      imageHeight: 241,
       profileUrl: "{{SHING_SHIN_CHENG_PROFILE_URL}}",
     },
     {
@@ -120,7 +122,9 @@ window.SONOPILOT_CONTENT = {
       name: "Yuelin Zhang",
       role: "PhD Student",
       affiliation: "SRIL, The Chinese University of Hong Kong",
-      image: "yuelin-zhang.jpg",
+      image: "yuelin-zhang.png",
+      imageWidth: 178,
+      imageHeight: 221,
       profileUrl: "{{YUELIN_ZHANG_PROFILE_URL}}",
     },
     {
@@ -129,6 +133,8 @@ window.SONOPILOT_CONTENT = {
       role: "Research Associate",
       affiliation: "SRIL, The Chinese University of Hong Kong",
       image: "qingpeng-ding.jpg",
+      imageWidth: 177,
+      imageHeight: 221,
       profileUrl: "{{QINGPENG_DING_PROFILE_URL}}",
     },
     {
@@ -137,6 +143,8 @@ window.SONOPILOT_CONTENT = {
       role: "PhD Student",
       affiliation: "SRIL, The Chinese University of Hong Kong",
       image: "zhouyang-hong.jpg",
+      imageWidth: 177,
+      imageHeight: 221,
       profileUrl: "{{ZHOUYANG_HONG_PROFILE_URL}}",
     },
     {
@@ -145,6 +153,8 @@ window.SONOPILOT_CONTENT = {
       role: "PhD Student",
       affiliation: "SRIL, The Chinese University of Hong Kong",
       image: "luoyao-kang.jpg",
+      imageWidth: 177,
+      imageHeight: 221,
       profileUrl: "{{LUOYAO_KANG_PROFILE_URL}}",
     },
     {
@@ -153,6 +163,8 @@ window.SONOPILOT_CONTENT = {
       role: "PhD Student",
       affiliation: "SRIL, The Chinese University of Hong Kong",
       image: "wenxuan-xie.jpg",
+      imageWidth: 177,
+      imageHeight: 221,
       profileUrl: "{{WENXUAN_XIE_PROFILE_URL}}",
     },
     {

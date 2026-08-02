@@ -143,7 +143,7 @@
               .join("");
             return `<article class="person-card reveal">
               <div class="person-portrait ${hasImage ? "" : "portrait-fallback"}">
-                ${hasImage ? `<img src="${imageUrl(person.image)}" alt="Portrait of ${person.name}" loading="lazy" width="355" height="442">` : `<span aria-hidden="true">${initials}</span>`}
+                ${hasImage ? `<img src="${imageUrl(person.image)}" alt="Portrait of ${person.name}" loading="lazy" width="${person.imageWidth}" height="${person.imageHeight}">` : `<span aria-hidden="true">${initials}</span>`}
               </div>
               <div class="person-copy">
                 <h3>${person.name}</h3>
